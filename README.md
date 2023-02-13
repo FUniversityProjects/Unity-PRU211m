@@ -7,7 +7,7 @@
 - **Tạo commit sau khi add file/folder vào stage** --> `git commit -m "<message>"`
 - *Lưu ý khi tạo commit: message phải có commit convension và thông tin tổng quát về commit*
   - VD: *script: add monster moving*
-- **Tạo nhánh mới (dành cho lần đầu trước khi push code, các lần sau không cần)** --> `git checkout -b <nhánh tạo> <nhánh cha>`
+- **Tạo nhánh mới (dành cho lần đầu trước khi push code, các lần sau không cần)** --> `git checkout -b <nhánh tạo>`
 - **Di chuyển sang các nhánh khác** --> `git checkout <tên nhánh>`
 - **Kéo code từ trên github về** --> `git pull`
 - **Đẩy code lên nhánh (dành cho lần đầu push lên nhánh mới)** --> `git push origin -u <tên nhánh>`
