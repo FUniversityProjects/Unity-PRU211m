@@ -1,4 +1,4 @@
-# PRN211 - AudioStore - MVC
+# PRU211m - HeroBase - Unity
 
 ## Hướng dẫn sử dụng git cho repo chung
 - **Clone this repo** --> `git clone https://github.com/FUniversityProjects/PRN211-AudioStore.git`
