@@ -1,7 +1,7 @@
 # PRU211m - HeroBase - Unity
 
 ## Hướng dẫn sử dụng git cho repo chung
-- **Clone this repo** --> `git clone https://github.com/FUniversityProjects/PRN211-AudioStore.git`
+- **Clone this repo** --> `git clone https://github.com/FUniversityProjects/Unity-PRU211m.git`
 - **Kiểm tra trạng thái file/folder sau khi code** --> `git status`
 - **Add các file/folder đã thay đổi** --> `git add .` hoặc `git add <folder/file>`
 - **Tạo commit sau khi add file/folder vào stage** --> `git commit -m "<message>"`
