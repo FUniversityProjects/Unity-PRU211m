@@ -4,46 +4,39 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-  [SerializeField] private Animator Ani;
+  [SerializeField] private Animator animator;
+  [SerializeField] private Transform attackPonit;
+  [SerializeField] private float attackRange = 0.5f;
+  [SerializeField] private LayerMask enemyLayers;
 
-  [SerializeField] private int combo;
-  [SerializeField] private bool attack;
-
-
-  // Start is called before the first frame update
-  void Start()
-  {
-    Ani = GetComponent<Animator>();
-  }
-
-  // Update is called once per frame
+  private float attackRate = 2f;
+  private float nextAttackTime = 0f;
   void Update()
   {
-    Combos();
-  }
-
-  private void Combos()
-  {
-    if (Input.GetKeyDown(KeyCode.J) && !attack)
+    if (Time.time >= nextAttackTime)
     {
-      attack = true;
-      Ani.SetTrigger("" + combo);
-
+      if (Input.GetKeyDown(KeyCode.J))
+      {
+        Attack();
+        nextAttackTime = Time.time + 1f / attackRate;
+      }
     }
   }
-  [SerializeField]
-  private void Start_Combo()
+  void Attack()
   {
-    attack = false;
-    if (combo < 3)
+    animator.SetTrigger("Attack");
+
+    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPonit.position, attackRange, enemyLayers);
+    foreach (Collider2D enemy in hitEnemies)
     {
-      combo++;
+      Debug.Log("hit");
     }
   }
-  [SerializeField]
-  private void Finish_Ani()
+  private void OnDrawGizmosSelected()
   {
-    attack = false;
-    combo = 0;
+    if (attackPonit == null)
+      return;
+    Gizmos.DrawWireSphere(attackPonit.position, attackRange);
   }
+
 }
