@@ -6,7 +6,8 @@ public class PlayerSkills : MonoBehaviour
 {
   [SerializeField] private float attackCooldown;
   [SerializeField] private Transform windCutPoint;
-  [SerializeField] private GameObject[] windCuts;
+  [SerializeField] private GameObject windCuts;
+  [SerializeField] private GameObject slashX;
   private Animator animator;
 
   private PlayerMovement playerMovement;
@@ -23,22 +24,39 @@ public class PlayerSkills : MonoBehaviour
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.K) && cooldownTimer > attackCooldown)
+    {
+      Skill1();
+      cooldownTimer = 3;
+    }
+    else if (Input.GetKeyDown(KeyCode.L) && cooldownTimer > attackCooldown)
+    {
+      Skill2();
+      cooldownTimer = 3;
+    }
 
-      Skills();
-    cooldownTimer += Time.deltaTime;
 
   }
-  private void Skills()
+  private void Skill1()
   {
     animator.SetTrigger("Skill1");
     cooldownTimer = 0;
-    wait();
-    windCuts[0].transform.position = windCutPoint.position;
-    windCuts[0].GetComponent<WindCut>().SetDerection(Mathf.Sign(transform.localScale.x));
+
   }
-  private IEnumerator wait()
+  private void Skill2()
   {
-    yield return new WaitForSeconds(2);
+    animator.SetTrigger("Skill2");
+    cooldownTimer = 0;
+
+  }
+  public void FinishSkill1()
+  {
+    windCuts.transform.position = windCutPoint.position;
+    windCuts.GetComponent<WindCut>().SetDerection(Mathf.Sign(transform.localScale.x));
+  }
+  public void FinishSkill2()
+  {
+    slashX.transform.position = windCutPoint.position;
+    slashX.GetComponent<SlashX>().SetDerection(Mathf.Sign(transform.localScale.x));
   }
 
 }

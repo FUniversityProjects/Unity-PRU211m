@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindCut : MonoBehaviour
+public class SlashX : MonoBehaviour
 {
   [SerializeField] private float speed;
   private float direction;
@@ -10,6 +10,7 @@ public class WindCut : MonoBehaviour
   private Animator animator;
   private PolygonCollider2D polygonCollider2D;
   [SerializeField] private float deactive = 0;
+
 
   private void Awake()
   {
