@@ -15,7 +15,7 @@ public class SwingingAxe : MonoBehaviour
     void Update()
     {
         Quaternion a = startPos;
-        a.x += direction * (delta * Mathf.Sin(Time.time * speed));
+        a.z += direction * (delta * Mathf.Sin(Time.time * speed));
         transform.rotation = a;
     }
 }
