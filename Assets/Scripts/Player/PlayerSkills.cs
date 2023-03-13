@@ -11,8 +11,8 @@ public class PlayerSkills : MonoBehaviour
   private Animator animator;
 
   private PlayerMovement playerMovement;
-  private float cooldownTimer = Mathf.Infinity;
-
+  [SerializeField] private float cooldownTimer = Mathf.Infinity;
+  //= Mathf.Infinity
   // Start is called before the first frame update
   void Awake()
   {
@@ -26,27 +26,27 @@ public class PlayerSkills : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.K) && cooldownTimer > attackCooldown)
     {
       Skill1();
-      cooldownTimer = 3;
+
     }
     else if (Input.GetKeyDown(KeyCode.L) && cooldownTimer > attackCooldown)
     {
       Skill2();
+    }
+    cooldownTimer += Time.deltaTime;
+    if (cooldownTimer >= 3)
+    {
       cooldownTimer = 3;
     }
-
-
   }
   private void Skill1()
   {
     animator.SetTrigger("Skill1");
     cooldownTimer = 0;
-
   }
   private void Skill2()
   {
     animator.SetTrigger("Skill2");
     cooldownTimer = 0;
-
   }
   public void FinishSkill1()
   {

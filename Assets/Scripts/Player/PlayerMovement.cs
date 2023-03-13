@@ -19,10 +19,7 @@ public class PlayerMovement : MonoBehaviour
   private Vector2 dashingDir;
   private bool isDashing;
   private bool canDash = true;
-
-
   private int jumpLeft;
-
 
   // Start is called before the first frame update
   void Start()

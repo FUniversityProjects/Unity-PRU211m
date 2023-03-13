@@ -30,6 +30,7 @@ public class SlashX : MonoBehaviour
     polygonCollider2D.enabled = false;
     Deactivate();
   }
+
   public void SetDerection(float _direction)
   {
     direction = _direction;
@@ -37,11 +38,14 @@ public class SlashX : MonoBehaviour
     hit = false;
     polygonCollider2D.enabled = true;
 
+    // float localScaleX = PlayerMovement.instance.transform.localScale.x;
     float localScaleX = transform.localScale.x;
     if (Mathf.Sign(localScaleX) != _direction)
+    {
       localScaleX = -localScaleX;
+    }
 
-    transform.localScale = new Vector3(localScaleX, transform.lossyScale.y, transform.lossyScale.z);
+    transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
   }
 
   private void Deactivate()
