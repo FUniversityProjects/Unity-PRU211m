@@ -21,7 +21,7 @@ public class NormalMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void seFixedUpdate()
+    void FixedUpdate()
     {
         if (_movingRight)
         {
