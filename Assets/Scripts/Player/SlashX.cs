@@ -18,18 +18,18 @@ public class SlashX : MonoBehaviour
         polygonCollider2D = GetComponent<PolygonCollider2D>();
     }
 
-    private void Update()
-    {
-        if (hit) return;
-        float movementSpeed = (speed * Time.deltaTime * direction);
-        transform.Translate(movementSpeed, 0, 0);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        hit = true;
-        polygonCollider2D.enabled = false;
-        Deactivate();
-    }
+  private void Update()
+  {
+    if (hit) return;
+    float movementSpeed = (speed * Time.deltaTime * direction);
+    transform.Translate(movementSpeed, 0, 0);
+  }
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    hit = true;
+    polygonCollider2D.enabled = false;
+    Deactivate();
+  }
 
     public void SetDerection(float _direction)
     {
