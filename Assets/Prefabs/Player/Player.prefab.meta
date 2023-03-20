@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Trap/FallingRock.prefab.meta
+guid: 4f9649372fb41b241b7f516eaa483191
+========
 guid: 707d787222ac62647aeda14db356aa61
+>>>>>>>> main:Assets/Prefabs/Player/Player.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/NPC.meta
+guid: 4f629d3744b414140a0837f77a15913f
+========
 guid: 8c134fd6f805a6547a8326008a46ebc5
+>>>>>>>> main:Assets/Animations/Player.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

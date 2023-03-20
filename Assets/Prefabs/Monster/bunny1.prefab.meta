@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Trap/arrow-scaled-left.prefab.meta
+guid: 0375f3996dd58cd41b021a54226085a0
+========
 guid: f1abe2589b365ec4ca24555c216f2d36
+>>>>>>>> main:Assets/Prefabs/Monster/bunny1.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
