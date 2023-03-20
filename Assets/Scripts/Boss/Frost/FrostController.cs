@@ -16,7 +16,7 @@ public class FrostController : MonoBehaviour, IDamage
     [Header("Attack")]
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public float attackDamage = 40;
+    public float attackDamage = 20;
     public LayerMask playerLayers;
 
     // Update is called once per frame
