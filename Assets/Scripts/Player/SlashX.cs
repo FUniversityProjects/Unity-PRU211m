@@ -24,7 +24,7 @@ public class SlashX : MonoBehaviour
     float movementSpeed = (speed * Time.deltaTime * direction);
     transform.Translate(movementSpeed, 0, 0);
   }
-  private void OnTriggerEnter2D(Collider2D collision)
+  private void OnCollisionEnter2D(Collision2D collision)
   {
     hit = true;
     polygonCollider2D.enabled = false;
