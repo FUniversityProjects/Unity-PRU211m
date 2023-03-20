@@ -94,7 +94,7 @@ public class BossGolemController : MonoBehaviour, IDamage
         }
 
 #if UNITY_EDITOR
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.H))
         {
             TakeHit();
         }
