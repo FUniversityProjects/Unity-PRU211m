@@ -45,7 +45,8 @@ public class FrostController : MonoBehaviour, IDamage
 
         foreach (Collider2D player in hits)
         {
-            //call dame
+            player.GetComponent<PlayerStatus>().TakeDamage(attackDamage);
+            Debug.Log("Hit player");
         }
     }
 
