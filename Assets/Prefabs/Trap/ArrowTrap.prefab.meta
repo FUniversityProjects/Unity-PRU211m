@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 2fb5033397abecb4bb6d70246c10e247
+<<<<<<<< HEAD:Assets/Prefabs/Trap/ArrowTrap.prefab.meta
+guid: 25dcc55cf4b8c7e4cad1c55410cb2fe9
+========
+guid: 91dd68169d710f64a92cd47bbafcebda
+>>>>>>>> main:Assets/Prefabs/Boss/Boss Arm Attack.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

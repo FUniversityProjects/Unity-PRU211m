@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 998a044cf894fdd4487e68b3587701dd
+<<<<<<<< HEAD:Assets/Prefabs/Trap/ArrowTrap Variant.prefab.meta
+guid: 6df781f55f0d95c48bcbeb1b1bf3bff5
 PrefabImporter:
+========
+guid: 616944ce1594df845af8736727e4f200
+DefaultImporter:
+>>>>>>>> main:Assets/Scenes/Player.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
