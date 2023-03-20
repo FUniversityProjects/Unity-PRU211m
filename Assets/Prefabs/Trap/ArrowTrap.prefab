@@ -98,9 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc1e53feb986da49b039b74119b8e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 866762079515132943, guid: 6ee0ee296ec1b534ba03515ade63ea50, type: 3}
   spawnLocation: {fileID: 2478840704270654265}
-  spawnRotation: {x: 0, y: 0, z: 0, w: 0}
+  spawnRotation: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+  sqawnTime: 4
+  timeSinceSpawned: 0
 --- !u!1 &4958563239732198803
 GameObject:
   m_ObjectHideFlags: 0
