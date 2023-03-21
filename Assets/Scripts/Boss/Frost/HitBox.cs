@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour, ICollisionHandler
 {
-    [SerializeField] private BossGolemController bossCont;
+    [SerializeField] private FrostController bossCont;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
