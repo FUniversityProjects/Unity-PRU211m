@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
   [SerializeField] private Transform attackPonit;
   [SerializeField] private float attackRange = 0.5f;
   [SerializeField] private LayerMask enemyLayers;
+  [SerializeField] private float attackDame;
 
   private float attackRate = 2f;
   private float nextAttackTime = 0f;
@@ -15,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
   {
     if (Time.time >= nextAttackTime)
     {
-      if (Input.GetKeyDown(KeyCode.J))
+      if (Input.GetKeyUp(KeyCode.J))
       {
         Attack();
         nextAttackTime = Time.time + 1f / attackRate;
@@ -24,12 +25,14 @@ public class PlayerAttack : MonoBehaviour
   }
   void Attack()
   {
+    //var enemyStatus = GetComponent<EnemyStatus>();
     animator.SetTrigger("Attack");
 
     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPonit.position, attackRange, enemyLayers);
     foreach (Collider2D enemy in hitEnemies)
     {
-      Debug.Log("hit");
+      enemy.GetComponent<EnemyStatus>().TakeDamage(attackDame);
+      //Debug.Log("hit");
     }
   }
   private void OnDrawGizmosSelected()
