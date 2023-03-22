@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform attackPonit;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
+
+    [SerializeField] private AudioSource attackEffect;
     public float attackDame;
 
     private float attackRate = 2f;
@@ -36,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
         var boss = GetComponent<GolemStatus>();
         //var enemyStatus = GetComponent<EnemyStatus>();
         animator.SetTrigger("Attack");
+
+        attackEffect.Play();
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPonit.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)

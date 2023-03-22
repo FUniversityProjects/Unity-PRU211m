@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Scripts.Interfaces;
-using Unity.PlasticSCM.Editor.WebApi;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour, IDamage
@@ -50,6 +48,7 @@ public class PlayerStatus : MonoBehaviour, IDamage
         AddHealth(maxHP);
 
         Destroy(parent);
+        SceneManager.LoadScene("MainMenu");
         // GetComponent<Collider2D>().enabled = false;
         // GetComponent<Renderer>().enabled = false;
         // this.enabled = false;
