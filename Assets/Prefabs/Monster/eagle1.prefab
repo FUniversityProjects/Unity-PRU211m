@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6855186631674737655}
   - component: {fileID: 6855186631674737649}
   - component: {fileID: 391189666126641201}
+  - component: {fileID: -1571524966416797913}
+  - component: {fileID: 8623751778037054491}
   m_Layer: 3
   m_Name: eagle1
   m_TagString: Untagged
@@ -163,3 +165,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6bcf716b4d24ac4b8f1456fcae7e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-1571524966416797913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855186631674737653}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8623751778037054491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855186631674737653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156666b84e3a71347bcee13ec75b038a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackVel: 2
+  maxHP: 50
+  hp: 0
+  healthBar: {fileID: 0}
+  parent: {fileID: 6855186631674737653}

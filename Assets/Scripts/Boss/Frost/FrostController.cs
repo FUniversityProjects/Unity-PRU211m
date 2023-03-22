@@ -7,11 +7,11 @@ public class FrostController : MonoBehaviour, IDamage
     [SerializeField] private Transform boss;
     [SerializeField] private Animator anim;
 
-    [Header("Movement")]
-    [Range(1, 10)]
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private Transform leftPoint, rightPoint;
-    private bool _moveRight;
+    // [Header("Movement")]
+    // [Range(1, 10)]
+    // [SerializeField] private float moveSpeed;
+    // [SerializeField] private Transform leftPoint, rightPoint;
+    // private bool _moveRight;
 
     [Header("Attack")]
     public Transform attackPoint;

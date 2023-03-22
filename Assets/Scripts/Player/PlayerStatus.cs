@@ -7,56 +7,55 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour, IDamage
 {
-  [SerializeField] private float maxHP = 100;
-  [SerializeField] private float hp;
-  [SerializeField] private Animator Ani;
-  public HealthBar healthBar;
-  public bool isDead = false;
-  private Vector3 respawnPoint;
+    [SerializeField] private float maxHP = 100;
+    [SerializeField] private float hp;
+    [SerializeField] private Animator Ani;
+    [SerializeField] private GameObject parent;
+    public HealthBar healthBar;
+    public bool isDead = false;
+    private Vector3 respawnPoint;
 
 
-  void Start()
-  {
-    hp = maxHP;
-    healthBar.SetHealth(hp, maxHP);
-    respawnPoint = transform.position;
-    }
-  public void TakeDamage(float damage)
-  {
-    hp -= damage;
-    healthBar.SetHealth(hp, maxHP);
-    Debug.Log(hp);
-    if (hp <= 0)
+    void Start()
     {
-      StartCoroutine(Die());
+        hp = maxHP;
+        healthBar.SetHealth(hp, maxHP);
+        respawnPoint = transform.position;
     }
-  }
+    public void TakeDamage(float damage)
+    {
+        hp -= damage;
+        healthBar.TakeDmgUI(hp);
+        Debug.Log(hp);
+        if (hp <= 0)
+        {
+            StartCoroutine(Die());
+        }
+    }
     public void AddHealth(float _value)
     {
         hp = Mathf.Clamp(hp + _value, 0, maxHP);
     }
-    
-  public IEnumerator Die()
-  {
-    Debug.Log("Player died! ");
-    //Die animation
-    Ani.SetBool("isDead", true);
-    //Disable Enemy
-    yield return new WaitForSeconds(0.8f);
+    public IEnumerator Die()
+    {
+        Debug.Log("Player died! ");
+        //Die animation
+        Ani.SetBool("isDead", true);
+        //Disable Enemy
+        yield return new WaitForSeconds(0.8f);
 
-    isDead = true;
-    Ani.SetBool("isDead" ,false);
-    transform.position = respawnPoint;
+        isDead = true;
+        Ani.SetBool("isDead", false);
+        transform.position = respawnPoint;
         AddHealth(maxHP);
 
-        ; 
+        Destroy(parent);
+        // GetComponent<Collider2D>().enabled = false;
+        // GetComponent<Renderer>().enabled = false;
+        // this.enabled = false;
 
-    // GetComponent<Collider2D>().enabled = false;
-    // GetComponent<Renderer>().enabled = false;
-    // this.enabled = false;
+    }
 
-  }
-    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "FallDectector")
@@ -72,8 +71,8 @@ public class PlayerStatus : MonoBehaviour, IDamage
 
 
     public void TakeHit()
-  {
-    throw new System.NotImplementedException();
-  }
+    {
+        throw new System.NotImplementedException();
+    }
 
 }
