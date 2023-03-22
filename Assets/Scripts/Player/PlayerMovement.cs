@@ -44,8 +44,7 @@ public class PlayerMovement : MonoBehaviour
   void FixedUpdate()
   {
     var inputX = Input.GetAxisRaw("Horizontal");
-    // var jumpInput = Input.GetButtonDown("Jump");
-    var jumpInput = Input.GetKey(KeyCode.N);
+    var jumpInput = Input.GetButtonDown("Jump");
     var dashInput = Input.GetButtonDown("Dash");
 
         if (dashInput && canDash)

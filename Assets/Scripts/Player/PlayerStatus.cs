@@ -28,7 +28,7 @@ public class PlayerStatus : MonoBehaviour, IDamage
   }
   public IEnumerator Die()
   {
-    Debug.Log("Player died! ");
+    Debug.Log("Enemy died! ");
     //Die animation
     Ani.SetBool("isDead", true);
     //Disable Enemy
