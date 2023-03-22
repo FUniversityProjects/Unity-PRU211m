@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SlashX : MonoBehaviour
 {
-  [SerializeField] private float speed;
-  private float direction;
-  private bool hit;
-  private Animator animator;
-  private PolygonCollider2D polygonCollider2D;
-  [SerializeField] private float deactive = 0;
-  [SerializeField] private float skillDame;
+    [SerializeField] private float speed;
+    private float direction;
+    private bool hit;
+    private Animator animator;
+    private PolygonCollider2D polygonCollider2D;
+    [SerializeField] private float deactive = 0;
+    // [SerializeField] private float skillDame;
 
 
     private void Awake()
@@ -19,30 +19,31 @@ public class SlashX : MonoBehaviour
         polygonCollider2D = GetComponent<PolygonCollider2D>();
     }
 
-  private void Update()
-  {
-    if (hit) return;
-    float movementSpeed = (speed * Time.deltaTime * direction);
-    transform.Translate(movementSpeed, 0, 0);
-  }
-  private void OnCollisionEnter2D(Collision2D collision)
-  {
-    var enemy = collision.collider.GetComponent<EnemyStatus>();
-    var boss = collision.collider.GetComponent<GolemStatus>();
-    hit = true;
-    polygonCollider2D.enabled = false;
+    private void Update()
+    {
+        if (hit) return;
+        float movementSpeed = (speed * Time.deltaTime * direction);
+        transform.Translate(movementSpeed, 0, 0);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // var enemy = collision.collider.GetComponent<EnemyStatus>();
+        // var boss = collision.collider.GetComponent<GolemStatus>();
+        hit = true;
+        polygonCollider2D.enabled = false;
 
-    if (enemy != null)
-    {
-      enemy.TakeDamage(skillDame);
-      Deactivate();
+        if (collision.transform.TryGetComponent(out EnemyStatus enemy))
+        {
+            enemy.TakeDamage(PlayerAttack.instance.attackDame);
+            Deactivate();
+        }
+
+        else if (collision.transform.TryGetComponent(out GolemStatus boss))
+        {
+            boss.TakeDamage(PlayerAttack.instance.attackDame);
+            Deactivate();
+        }
     }
-    else if (boss != null)
-    {
-      boss.TakeDamage(skillDame);
-      Deactivate();
-    }
-  }
 
     public void SetDerection(float _direction)
     {
@@ -79,6 +80,6 @@ public class SlashX : MonoBehaviour
             deactive += Time.deltaTime;
         }
 
-  }
+    }
 
 }
