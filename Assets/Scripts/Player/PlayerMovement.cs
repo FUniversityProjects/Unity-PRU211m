@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] private float knockbackVel;
   private bool checkKnockback;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -132,5 +131,6 @@ public class PlayerMovement : MonoBehaviour
     yield return new WaitForSeconds(0.5f);
     checkKnockback = false;
   }
+    
 
 }
