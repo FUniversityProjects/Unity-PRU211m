@@ -31,14 +31,14 @@ public class PlayerMovement : MonoBehaviour
   private bool checkKnockback;
 
 
-  // Start is called before the first frame update
-  void Start()
-  {
-    RB = GetComponent<Rigidbody2D>();
-    Ani = GetComponent<Animator>();
-    jumpLeft = maxJump;
-    TR = GetComponent<TrailRenderer>();
-  }
+    // Start is called before the first frame update
+    void Start()
+    {
+        RB = GetComponent<Rigidbody2D>();
+        Ani = GetComponent<Animator>();
+        jumpLeft = maxJump;
+        TR = GetComponent<TrailRenderer>();
+    }
 
   // Update is called once per frame
   void FixedUpdate()
@@ -48,27 +48,27 @@ public class PlayerMovement : MonoBehaviour
     var jumpInput = Input.GetKey(KeyCode.N);
     var dashInput = Input.GetButtonDown("Dash");
 
-    if (dashInput && canDash)
-    {
-      isDashing = true;
-      canDash = false;
-      TR.emitting = true;
-      dashingDir = new Vector2(inputX, 0);
-      if (dashingDir == Vector2.zero)
-      {
-        dashingDir = new Vector2(transform.localScale.x, 0);
-      }
-      StartCoroutine(StopDashing());
-    }
-    Ani.SetBool("IsDash", isDashing);
-    if (isDashing)
-    {
-      RB.velocity = dashingDir.normalized * dashingVeclocity;
-      return;
-    }
-    if (IsGrounded())
-    {
-      canDash = true;
+        if (dashInput && canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            TR.emitting = true;
+            dashingDir = new Vector2(inputX, 0);
+            if (dashingDir == Vector2.zero)
+            {
+                dashingDir = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+        }
+        Ani.SetBool("IsDash", isDashing);
+        if (isDashing)
+        {
+            RB.velocity = dashingDir.normalized * dashingVeclocity;
+            return;
+        }
+        if (IsGrounded())
+        {
+            canDash = true;
 
     }
     if (!checkKnockback)
@@ -76,19 +76,19 @@ public class PlayerMovement : MonoBehaviour
       RB.velocity = new Vector2(inputX * speed, RB.velocity.y);
     }
 
-    if (IsGrounded() && RB.velocity.y < 0)
-    {
-      jumpLeft = maxJump;
-    }
-    if (jumpInput && jumpLeft > 0)
-    {
-      RB.velocity = new Vector2(RB.velocity.x, jumpForce);
-      jumpLeft -= 1;
-    }
-    if (inputX != 0)
-    {
-      transform.localScale = new Vector3(Mathf.Sign(inputX), 1, 1);
-    }
+        if (IsGrounded() && RB.velocity.y < 0)
+        {
+            jumpLeft = maxJump;
+        }
+        if (jumpInput && jumpLeft > 0)
+        {
+            RB.velocity = new Vector2(RB.velocity.x, jumpForce);
+            jumpLeft -= 1;
+        }
+        if (inputX != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(inputX), 1, 1);
+        }
 
     Ani.SetBool("IsJump", !IsGrounded());
     // Ani.SetBool("IsFall", !IsGrounded());
