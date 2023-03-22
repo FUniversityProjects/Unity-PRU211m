@@ -6,21 +6,23 @@ using UnityEngine.SceneManagement;
 public class ToNextStage : MonoBehaviour
 {
 
-    public int sceneBuildIndex;
+  public int sceneBuildIndex;
 
-    // Level move zoned enter, if collider is a player
-    // Move game to another scene
-    private void OnTriggerEnter2D(Collider2D other)
+  // Level move zoned enter, if collider is a player
+  // Move game to another scene
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    // print("Trigger Entered");
+
+    // Could use other.GetComponent<Player>() to see if the game object has a Player component
+    // Tags work too. Maybe some players have different script components?
+    if (other.tag == "Player" /*Input.GetButton("Jump")*/)
     {
-        print("Trigger Entered");
-
-        // Could use other.GetComponent<Player>() to see if the game object has a Player component
-        // Tags work too. Maybe some players have different script components?
-        if (other.tag == "Player" /*Input.GetButton("Jump")*/)
-        {
-            // Player entered, so move level
-            print("Switching Scene to " + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
-        }
+      // Player entered, so move level
+      // print("Switching Scene to " + sceneBuildIndex);
+      // SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+      // DontDestroyOnLoad(this.gameObject);
+      SceneManager.LoadScene("Level 2");
     }
+  }
 }

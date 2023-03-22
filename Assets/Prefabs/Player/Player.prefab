@@ -111,7 +111,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
-  m_FillRect: {fileID: 0}
+  m_FillRect: {fileID: 8498658372193351174}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 3602142334170199423}
   - component: {fileID: 3602142334170199416}
   - component: {fileID: 3602142334170199417}
-  - component: {fileID: 7563232621820516909}
   - component: {fileID: 3929763884440093164}
   - component: {fileID: 8302592859435702047}
   m_Layer: 7
@@ -476,8 +475,8 @@ MonoBehaviour:
   maxJump: 2
   dashingVeclocity: 10
   dashingTime: 0.5
-  _center: {fileID: 0}
-  knockbackVel: 0
+  _center: {fileID: 7510400699805450490}
+  knockbackVel: 5
 --- !u!95 &3602142334170199422
 Animator:
   serializedVersion: 5
@@ -624,6 +623,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
+  attackDame: 20
 --- !u!114 &3602142334170199417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,24 +641,6 @@ MonoBehaviour:
   windCuts: {fileID: 0}
   slashX: {fileID: 0}
   cooldownTimer: 0
---- !u!114 &7563232621820516909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3602142334170199296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220b17e40eeed2245b313e2233ce6f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 3602142334170199422}
-  attackPonit: {fileID: 3602142333651934641}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &3929763884440093164
 MonoBehaviour:
   m_ObjectHideFlags: 0

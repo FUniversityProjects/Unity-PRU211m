@@ -25,14 +25,24 @@ public class PlayerAttack : MonoBehaviour
   }
   void Attack()
   {
+    var monster = GetComponent<EnemyStatus>();
+    var boss = GetComponent<GolemStatus>();
     //var enemyStatus = GetComponent<EnemyStatus>();
     animator.SetTrigger("Attack");
 
     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPonit.position, attackRange, enemyLayers);
     foreach (Collider2D enemy in hitEnemies)
     {
-      enemy.GetComponent<EnemyStatus>().TakeDamage(attackDame);
-      //Debug.Log("hit");
+
+      if (enemy.GetComponent<EnemyStatus>() != null)
+      {
+        enemy.GetComponent<EnemyStatus>().TakeDamage(attackDame);
+        //Debug.Log("hit");
+      }
+      else if (enemy.GetComponent<GolemStatus>() != null)
+      {
+        enemy.GetComponent<GolemStatus>().TakeDamage(attackDame);
+      }
     }
   }
   private void OnDrawGizmosSelected()

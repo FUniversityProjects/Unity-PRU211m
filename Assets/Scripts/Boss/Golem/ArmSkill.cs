@@ -22,7 +22,7 @@ public class ArmSkill : MonoBehaviour
     var player = other.collider.GetComponent<PlayerStatus>();
     if (player != null)
     {
-      Debug.Log("trung skill");
+      //Debug.Log("trung skill");
       Destroy(gameObject);
       this.enabled = false;
     }
