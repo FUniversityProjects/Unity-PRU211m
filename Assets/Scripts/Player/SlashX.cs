@@ -10,6 +10,7 @@ public class SlashX : MonoBehaviour
   private Animator animator;
   private PolygonCollider2D polygonCollider2D;
   [SerializeField] private float deactive = 0;
+  [SerializeField] private float skillDame;
 
 
   private void Awake()
@@ -24,11 +25,23 @@ public class SlashX : MonoBehaviour
     float movementSpeed = (speed * Time.deltaTime * direction);
     transform.Translate(movementSpeed, 0, 0);
   }
-  private void OnTriggerEnter2D(Collider2D collision)
+  private void OnCollisionEnter2D(Collision2D collision)
   {
+    var enemy = collision.collider.GetComponent<EnemyStatus>();
+    var boss = collision.collider.GetComponent<GolemStatus>();
     hit = true;
     polygonCollider2D.enabled = false;
-    Deactivate();
+
+    if (enemy != null)
+    {
+      enemy.TakeDamage(skillDame);
+      Deactivate();
+    }
+    else if (boss != null)
+    {
+      boss.TakeDamage(skillDame);
+      Deactivate();
+    }
   }
 
   public void SetDerection(float _direction)
@@ -67,4 +80,5 @@ public class SlashX : MonoBehaviour
     }
 
   }
+
 }

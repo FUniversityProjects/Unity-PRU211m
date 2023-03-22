@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 550824143769834393}
   - component: {fileID: 4255428968842744569}
   - component: {fileID: 8511313403062585328}
+  - component: {fileID: 2178072173107994960}
   m_Layer: 0
   m_Name: Boss Arm Attack
   m_TagString: Untagged
@@ -156,3 +157,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5.23
+--- !u!114 &2178072173107994960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397709297319784681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bcf716b4d24ac4b8f1456fcae7e9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
