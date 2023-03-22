@@ -7,11 +7,6 @@ public class FrostController : MonoBehaviour, IDamage
     [SerializeField] private Transform boss;
     [SerializeField] private Animator anim;
 
-    [Header("Movement")]
-    [Range(1, 10)]
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private Transform leftPoint, rightPoint;
-    private bool _moveRight;
 
     [Header("Attack")]
     public Transform attackPoint;
@@ -19,7 +14,10 @@ public class FrostController : MonoBehaviour, IDamage
     public float attackDamage = 40;
     public LayerMask playerLayers;
 
-    // Update is called once per frame
+    [Header("Detect & Moving")]
+    public Transform player;
+    public bool isFlipped = false;
+
     void Update()
     {
 #if UNITY_EDITOR
@@ -33,19 +31,17 @@ public class FrostController : MonoBehaviour, IDamage
     public void TakeDamage(float damage)
     {
         anim.SetBool("IsHurt", true);
-
-        // currentState = bossStates.moving;
     }
 
     public void TakeHit()
     {
-        anim.SetTrigger("Attack");
+        anim.SetTrigger("Hit");
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
 
         foreach (Collider2D player in hits)
         {
-            //call dame
+            // call dame player => player.GetComponent<PlayerHurt>().TakeDamage(dame);
         }
     }
 
@@ -54,5 +50,24 @@ public class FrostController : MonoBehaviour, IDamage
         if (attackPoint == null) return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void DetectPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (transform.position.x > player.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (transform.position.x < player.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
     }
 }

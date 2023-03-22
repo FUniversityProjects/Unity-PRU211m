@@ -16,14 +16,16 @@ public class BossHealth : MonoBehaviour, IDamage
         }
     }
 
-    public void TakeHit()
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void Die()
     {
         anim.SetBool("IsDeath", true);
         Destroy(gameObject);
+    }
+
+
+
+    public void TakeHit()
+    {
+        throw new System.NotImplementedException();
     }
 }
