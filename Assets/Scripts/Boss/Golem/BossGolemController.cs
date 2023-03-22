@@ -57,6 +57,7 @@ public class BossGolemController : MonoBehaviour, IDamage
       case bossStates.hurt:
         if (_hurtCounter > 0)
         {
+
           _hurtCounter -= Time.deltaTime;
 
           if (_hurtCounter <= 0)
